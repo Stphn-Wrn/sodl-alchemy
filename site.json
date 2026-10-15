@@ -1,0 +1,28 @@
+{
+  "group": "sodl",
+  "platform": "foundry",
+  "icon": "fa-flask",
+  "order": 35,
+  "text": {
+    "fr": {
+      "title": "Alchimie à essences",
+      "summary": "Règle maison pour Échanges et artisanat : des ingrédients aux essences cachées, découvertes au chaudron.",
+      "features": [
+        "Ingrédients aux essences cachées, révélées en les mélangeant",
+        "Potions bâties sur les essences, avec qualité et effets secondaires",
+        "Carnet par personnage : essences trouvées et mélanges réussis",
+        "Codex modifiable par le MJ : créer, réécrire ou retirer des essences"
+      ]
+    },
+    "en": {
+      "title": "Essence Alchemy",
+      "summary": "House rule for Trades and Crafting: ingredients with hidden essences, found in the cauldron.",
+      "features": [
+        "Ingredients with hidden essences, revealed by mixing them",
+        "Potions built from essences, with quality and side effects",
+        "A notebook per character: essences found and mixes that worked",
+        "A codex the GM can edit: create, rewrite or remove essences"
+      ]
+    }
+  }
+}
