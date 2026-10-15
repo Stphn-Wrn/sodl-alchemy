@@ -2,7 +2,7 @@
   "id": "sodl-alchemy",
   "title": "L'Ombre du Seigneur Démon - Alchimie à essences",
   "description": "Règle maison pour le module « Échanges et artisanat » : les ingrédients cachent des essences que les personnages découvrent en les mélangeant au chaudron.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "compatibility": {
     "minimum": "13",
     "verified": "14"
@@ -36,7 +36,7 @@
   ],
   "url": "https://github.com/Stphn-Wrn/sodl-alchemy",
   "manifest": "https://raw.githubusercontent.com/Stphn-Wrn/sodl-alchemy/main/module.json",
-  "download": "https://github.com/Stphn-Wrn/sodl-alchemy/releases/download/v0.1.0/sodl-alchemy.zip",
+  "download": "https://github.com/Stphn-Wrn/sodl-alchemy/releases/download/v0.2.0/sodl-alchemy.zip",
   "license": "MIT",
   "esmodules": [
     "src/main.js"
