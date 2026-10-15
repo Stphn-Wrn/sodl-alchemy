@@ -9,7 +9,7 @@ Module complémentaire pour Foundry VTT et le système **Shadow of the Demon Lor
 ## Prérequis
 
 - Foundry VTT 13 ou plus récent, système Shadow of the Demon Lord.
-- Le module **Échanges et artisanat** (`sodl-trade`) dans une version qui publie l'API d'extension (prévue pour la 1.2.0), activé dans le monde. Foundry refuse d'activer l'alchimie sans lui.
+- Le module **Échanges et artisanat** (`sodl-trade`) 1.2.0 ou plus récent, activé dans le monde. Foundry refuse d'activer l'alchimie sans lui.
 
 ## Ce qu'il y a dedans
 

@@ -9,7 +9,7 @@ Add-on module for Foundry VTT and the **Shadow of the Demon Lord** system. It ad
 ## Requirements
 
 - Foundry VTT 13 or later, Shadow of the Demon Lord system.
-- The **Trades and Crafting** module (`sodl-trade`) in a version that publishes the extension API (planned for 1.2.0), enabled in the world. Foundry will not enable the alchemy without it.
+- The **Trades and Crafting** module (`sodl-trade`) 1.2.0 or later, enabled in the world. Foundry will not enable the alchemy without it.
 
 ## Features
 

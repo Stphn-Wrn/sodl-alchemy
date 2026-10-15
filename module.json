@@ -22,7 +22,10 @@
       {
         "id": "sodl-trade",
         "type": "module",
-        "manifest": "https://raw.githubusercontent.com/Stphn-Wrn/sodl-trade/main/module.json"
+        "manifest": "https://raw.githubusercontent.com/Stphn-Wrn/sodl-trade/main/module.json",
+        "compatibility": {
+          "minimum": "1.2.0"
+        }
       }
     ]
   },
@@ -31,6 +34,9 @@
       "name": "Courbette"
     }
   ],
+  "url": "https://github.com/Stphn-Wrn/sodl-alchemy",
+  "manifest": "https://raw.githubusercontent.com/Stphn-Wrn/sodl-alchemy/main/module.json",
+  "download": "https://github.com/Stphn-Wrn/sodl-alchemy/releases/download/v0.1.0/sodl-alchemy.zip",
   "license": "MIT",
   "esmodules": [
     "src/main.js"
