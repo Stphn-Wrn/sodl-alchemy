@@ -1,0 +1,211 @@
+{
+  "SODLALCHEMY": {
+    "Tab": "Alchemy",
+    "Settings": {
+      "Enabled": {
+        "Name": "Enable experimental alchemy (house rule)",
+        "Hint": "House rule, not in the books: ingredients hide essences that characters find by mixing them in the cauldron. The books use crafting (Demon Lord's Companion) and the Identify Substance and Brew Potion spells of the Laboratory tab."
+      }
+    },
+    "Title": "Alchemy",
+    "Shelf": "Your ingredients",
+    "ShelfEmpty": "No alchemical ingredient in the inventory. Harvest or buy some.",
+    "SlotHint": "Click your ingredients to throw them into the cauldron.",
+    "Remove": "Take out of the cauldron",
+    "Brew": "Brew",
+    "Study": "Study: uses up one and reveals an essence",
+    "Vials": "Empty vials: {count}",
+    "NoVial": "An empty vial is needed to bottle the potion.",
+    "Foreseen": "You sense: {essences}",
+    "ForeseenNone": "No known essence in common… at your own risk.",
+    "Unknown": "Unknown essence",
+    "Codex": "Essence codex",
+    "CodexHint": "GM only: the hidden essences of every ingredient in the catalog.",
+    "Opposes": "opposes {essence}",
+    "LastBrew": "Last brew",
+    "Made": "You get: {name}",
+    "Inert": "Inert mixture: nothing bound, the ingredients are lost.",
+    "Studied": "Study of {name}",
+    "Learned": "Found: {ingredient} holds {essence}",
+    "RecipesFound": "Recipe learned, now in the Crafting tab: {names}",
+    "SideEffectsTitle": "Side effects",
+    "PotionUse": "Drinking the potion takes an action. Its harmful effects strike whoever drinks it; poured into a drink or coated on a weapon, it affects the victim.",
+    "Potion": {
+      "potent": "Potent elixir {effects}",
+      "normal": "Elixir {effects}",
+      "flawed": "Murky elixir {effects}"
+    },
+    "Quality": {
+      "potent": "Potent brew.",
+      "normal": "Ordinary brew.",
+      "flawed": "Murky brew: something went wrong."
+    },
+    "Help": {
+      "Title": "How does it work?",
+      "Player": {
+        "Lead": "Every ingredient hides secret effects: essences. Mix two ingredients that share an essence, and you get a potion of that essence.",
+        "Example": "Example: ingredient A hides Purge and Vigilance, ingredient B hides Shadow and Vigilance. Together they share Vigilance: you get a potion of vigilance.",
+        "Step1": "Click 2 to 4 ingredients, then \"Brew\". An empty vial is needed.",
+        "Step2": "Shared essences go into the potion. With nothing in common, nothing binds: the ingredients are lost, the vial is kept.",
+        "Step3": "Each essence found replaces a \"?\" on the ingredient and stays in your notebook. The magnifier reveals one more essence by sacrificing one copy.",
+        "Step4": "An Intellect roll sets the quality: 20 and up, potent; 10 and up, normal; below, botched, with a side effect.",
+        "Step5": "Beware of opposites in the same potion: Vitality and Decay, Purge and Venom, Clarity and Dream, Ward and Abyss, Haste and Stone. They add a side effect."
+      },
+      "Gm": {
+        "Lead": "Players find the ingredients' hidden essences by mixing them; you see all of them in the codex below.",
+        "Step1": "Ingredients are the module's resources: \"Create resources\" in the Crafting tab, then hand them out through harvest, shops or rewards.",
+        "Step2": "A successful potion arrives in the inventory with its effects written out; you rule on them when it is drunk.",
+        "Step3": "Bonus: a player who puts exactly the ingredients of a crafting recipe in the cauldron, nothing more, learns it (the vial alone is not enough)."
+      }
+    },
+    "Book": {
+      "Edit": "Edit essences",
+      "Done": "Done",
+      "Add": "New essence",
+      "NewName": "New essence",
+      "Reset": "Restore everything",
+      "ConfirmReset": "Restore the essences and ingredients as the module ships them? Created essences will be deleted. Potions already brewed do not change.",
+      "Remove": "Remove essence",
+      "ConfirmRemove": "Remove the essence \"{name}\"? It leaves the ingredients and future brews. An original essence can be restored later; a created one is deleted.",
+      "Removed": "Removed essences (click to restore)",
+      "Restore": "Restore this essence",
+      "Icon": "Icon of this essence's potions",
+      "Color": "Colour",
+      "Name": "Name",
+      "Of": "In a potion's name (e.g. \"of frost\")",
+      "Normal": "Normal effect",
+      "Potent": "Potent effect",
+      "Opposite": "Contrary essence",
+      "NoOpposite": "No contrary",
+      "AddIngredient": "Add an ingredient…",
+      "RemoveIngredient": "Remove this ingredient",
+      "OfShort": "of …",
+      "Close": "Fold",
+      "EditOne": "Edit this essence",
+      "Ingredients": "Ingredients",
+      "NoIngredient": "No ingredient carries this essence.",
+      "OppositeHint": "A brew holding two contrary essences is unstable."
+    },
+    "Essences": {
+      "vitality": {
+        "Name": "Vitality",
+        "Of": "of vitality",
+        "Normal": "The drinker heals damage equal to their healing rate.",
+        "Potent": "The drinker heals damage equal to twice their healing rate."
+      },
+      "purge": {
+        "Name": "Purge",
+        "Of": "of purging",
+        "Normal": "Ends the poisoned affliction and the effects of a poison.",
+        "Potent": "Ends the poisoned affliction, poisons and diseases, then grants 1 boon on challenge rolls to resist poison for 1 hour."
+      },
+      "venom": {
+        "Name": "Venom",
+        "Of": "of venom",
+        "Normal": "Whoever drinks it, or is hurt by a coated weapon, makes a Strength challenge roll: on a failure, they take 1d6 damage and are poisoned for 1 minute.",
+        "Potent": "Whoever drinks it, or is hurt by a coated weapon, makes a Strength challenge roll with 1 bane: on a failure, they take 2d6 damage and are poisoned for 1 hour."
+      },
+      "vigil": {
+        "Name": "Vigilance",
+        "Of": "of vigilance",
+        "Normal": "1 boon on Perception rolls for 1 hour; the drinker cannot be surprised.",
+        "Potent": "For 8 hours, 1 boon on Perception rolls, the drinker cannot be surprised and needs no sleep."
+      },
+      "cinder": {
+        "Name": "Cinder",
+        "Of": "of cinders",
+        "Normal": "The drinker takes half damage from fire for 1 hour.",
+        "Potent": "The drinker is immune to fire damage for 1 hour."
+      },
+      "shadow": {
+        "Name": "Shadow",
+        "Of": "of shadow",
+        "Normal": "1 boon on rolls to hide or move silently for 1 hour.",
+        "Potent": "For 1 hour, the drinker sees in the dark and makes rolls to hide or move silently with 2 boons."
+      },
+      "stone": {
+        "Name": "Stone",
+        "Of": "of stone",
+        "Normal": "+2 Defense for 1 minute, but −2 Speed.",
+        "Potent": "+4 Defense for 1 minute, but −2 Speed."
+      },
+      "fury": {
+        "Name": "Fury",
+        "Of": "of fury",
+        "Normal": "For 1 minute, 1 boon on Strength attack rolls and 1 bane on Intellect rolls.",
+        "Potent": "For 1 minute, 2 boons on Strength attack rolls, +1d6 damage, and 1 bane on Intellect and Will rolls."
+      },
+      "clarity": {
+        "Name": "Clarity",
+        "Of": "of clarity",
+        "Normal": "1 boon on Intellect rolls for 1 hour.",
+        "Potent": "For 1 hour, 1 boon on Intellect and Will rolls; ends the frightened and dazed afflictions."
+      },
+      "haste": {
+        "Name": "Haste",
+        "Of": "of haste",
+        "Normal": "+4 Speed for 1 minute.",
+        "Potent": "+8 Speed for 1 minute; the drinker ignores difficult terrain."
+      },
+      "decay": {
+        "Name": "Decay",
+        "Of": "of decay",
+        "Normal": "Whoever drinks it, or is hurt by a coated weapon, takes 1d6 damage as their flesh blackens.",
+        "Potent": "Whoever drinks it, or is hurt by a coated weapon, takes 2d6 damage and makes Strength rolls with 1 bane for 1 hour."
+      },
+      "dream": {
+        "Name": "Dream",
+        "Of": "of dreams",
+        "Normal": "Whoever drinks it makes a Will challenge roll: on a failure, they fall asleep for 1 minute (a blow wakes them).",
+        "Potent": "Whoever drinks it makes a Will challenge roll with 1 bane: on a failure, they fall asleep for 1 hour."
+      },
+      "abyss": {
+        "Name": "Abyss",
+        "Of": "of the abyss",
+        "Normal": "1 boon on every roll for 1 minute. The drinker gains 1 Corruption.",
+        "Potent": "2 boons on every roll for 1 minute. The drinker gains 1 Corruption."
+      },
+      "ward": {
+        "Name": "Ward",
+        "Of": "of warding",
+        "Normal": "The drinker cannot be frightened for 1 hour.",
+        "Potent": "For 1 hour, the drinker cannot be frightened and makes challenge rolls to resist magic with 1 boon."
+      }
+    },
+    "SideEffects": {
+      "corruption": "Taint: the drinker gains 1 Corruption.",
+      "madness": "Whispers: the drinker gains 1 Insanity.",
+      "nausea": "Nausea: the drinker is poisoned for 1 minute.",
+      "eruption": "Eruption: the mixture spat in the alchemist's face, dealing 1d6 damage.",
+      "visions": "Visions: the drinker makes Perception rolls with 1 bane for 1 hour.",
+      "stigma": "Stigma: the drinker bears a strange mark (eyes, skin or voice) for 1d6 days."
+    },
+    "KnownInert": "Already in the notebook: these ingredients have nothing in common, nothing will bind.",
+    "UnboundNoted": "Noted in the notebook: {first} and {second} have nothing in common.",
+    "UnboundTitle": "Mixes with no affinity",
+    "Filter": {
+      "Label": "Filter:",
+      "All": "All",
+      "Unexplored": "Still hiding \"?\"",
+      "NoMatch": "No ingredient matches this filter."
+    },
+    "UnboundHint": "These pairs of ingredients share no essence: brewing them together makes nothing. The cauldron warns you if you put them together again.",
+    "SuccessTitle": "Successful mixes",
+    "SuccessHint": "The mixes that made a potion: the potion, its ingredients and its essences. Hover a line to read its effects; click the arrow to put the same ingredients back into the cauldron.",
+    "Repeat": "Put this mix back into the cauldron",
+    "RepeatMissing": "missing ingredient",
+    "Chat": {
+      "brewed": "{name} brews {item}.",
+      "brewInert": "{name} brews an inert mixture."
+    },
+    "Errors": {
+      "BrewCount": "Between {min} and {max} different ingredients are needed.",
+      "BrewDuplicate": "Each ingredient can only be thrown in once.",
+      "NoVial": "An empty vial is needed.",
+      "NotAnIngredient": "This item is not an alchemical ingredient.",
+      "NothingToLearn": "You already know everything about {name}.",
+      "InvalidEssence": "Invalid essence: a name is required, and an essence cannot oppose itself.",
+      "NoTradeModule": "The essence alchemy needs the \"Shadow of the Demon Lord - Trades and Crafting\" module, enabled in this world."
+    }
+  }
+}

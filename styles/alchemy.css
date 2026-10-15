@@ -1,0 +1,684 @@
+/* The essence alchemy: the cauldron table, the shelf, the notebook and the GM's codex.
+   It relies on the trade module's stylesheet for the window, the cauldron drawing and its animations. */
+
+/* Alchemy: ingredients hover over the cauldron before the brew, the shelf and notebook below. */
+.sodl-essence {
+  --essence: var(--trade-muted);
+  padding: 0 6px;
+  border: 1px solid var(--essence);
+  border-radius: 8px;
+  color: var(--essence);
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.sodl-essence.is-unknown {
+  border-style: dashed;
+}
+
+.sodl-essence.is-vitality { --essence: #d9534f; }
+.sodl-essence.is-purge { --essence: #c9b458; }
+.sodl-essence.is-venom { --essence: #6dbb3c; }
+.sodl-essence.is-vigil { --essence: #e0a040; }
+.sodl-essence.is-cinder { --essence: #e0672a; }
+.sodl-essence.is-shadow { --essence: #8a7bb8; }
+.sodl-essence.is-stone { --essence: #8f969e; }
+.sodl-essence.is-fury { --essence: #c0392b; }
+.sodl-essence.is-clarity { --essence: #6fa8d6; }
+.sodl-essence.is-haste { --essence: #4fb8a8; }
+.sodl-essence.is-decay { --essence: #8a7a3a; }
+.sodl-essence.is-dream { --essence: #b07cc6; }
+.sodl-essence.is-abyss { --essence: #a3324e; }
+.sodl-essence.is-ward { --essence: #b8b8c8; }
+
+/* The cauldron on the left; the ingredients thrown in, the hint and the brew button on the right. */
+.sodl-alchemy-table {
+  container-type: inline-size;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid var(--trade-border);
+  border-radius: 8px;
+  background: radial-gradient(ellipse at 50% 45%, rgba(110, 160, 60, 0.14), transparent 60%), rgba(0, 0, 0, 0.25);
+}
+
+.sodl-alchemy-side {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.sodl-alchemy-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sodl-trade button.sodl-alchemy-slot {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px dashed var(--trade-border);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.sodl-trade button.sodl-alchemy-slot.is-filled {
+  padding: 0;
+  border: 1px solid var(--craft-gold);
+  box-shadow: 0 0 8px rgba(201, 147, 46, 0.4);
+  animation: sodl-alchemy-hover 2.4s ease-in-out infinite;
+}
+
+.sodl-alchemy-slot.is-filled:nth-child(2) { animation-delay: 0.4s; }
+.sodl-alchemy-slot.is-filled:nth-child(3) { animation-delay: 0.8s; }
+.sodl-alchemy-slot.is-filled:nth-child(4) { animation-delay: 1.2s; }
+
+.sodl-alchemy-slot img {
+  width: 34px;
+  height: 34px;
+  border: none;
+}
+
+.sodl-alchemy-cauldron .sodl-station {
+  width: 190px;
+}
+
+@container (max-width: 380px) {
+.sodl-alchemy-cauldron .sodl-station {
+    width: 130px;
+  }
+}
+
+.sodl-alchemy-foreseen {
+  margin: 0;
+  font-style: italic;
+}
+
+.sodl-alchemy-foreseen.is-hint {
+  color: var(--trade-muted);
+}
+
+.sodl-alchemy-foreseen.is-warning {
+  color: var(--trade-waiting);
+}
+
+.sodl-alchemy-vials {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.sodl-alchemy-vials img {
+  width: 22px;
+  height: 22px;
+  border: none;
+}
+
+.sodl-alchemy-vials.is-missing {
+  color: var(--trade-waiting);
+}
+
+.sodl-trade .sodl-alchemy-side button.sodl-craft-brew {
+  margin-top: 0;
+}
+
+.sodl-alchemy-report {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-left: 3px solid var(--craft-gold);
+  border-radius: 4px;
+  background: var(--trade-surface);
+}
+
+.sodl-alchemy-report header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.sodl-alchemy-report p {
+  margin: 4px 0;
+}
+
+.sodl-alchemy-outcome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+}
+
+.sodl-alchemy-outcome img {
+  width: 32px;
+  height: 32px;
+  border: none;
+}
+
+.sodl-alchemy-side-effect {
+  color: #c0503a;
+}
+
+.sodl-alchemy-learned {
+  color: var(--trade-muted);
+}
+
+.sodl-alchemy-heading {
+  margin: 12px 0 6px;
+  border: none;
+  font-size: 14px;
+}
+
+.sodl-alchemy-shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sodl-alchemy-ingredient {
+  padding: 4px;
+  border: 1px solid var(--trade-border);
+  border-radius: 6px;
+  background: var(--trade-surface);
+  transition: border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.sodl-alchemy-ingredient.is-chosen {
+  border-color: var(--craft-gold);
+  opacity: 0.6;
+}
+
+.sodl-trade button.sodl-alchemy-pick {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.sodl-alchemy-pick img {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border: none;
+}
+
+.sodl-alchemy-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sodl-alchemy-quantity {
+  font-size: 11px;
+  color: var(--trade-muted);
+}
+
+.sodl-alchemy-essences {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3px;
+  margin-top: 4px;
+}
+
+.sodl-trade button.sodl-alchemy-study {
+  margin-left: auto;
+}
+
+.sodl-alchemy-journal {
+  margin-top: 10px;
+}
+
+.sodl-alchemy-journal summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.sodl-alchemy-journal summary small {
+  font-weight: normal;
+  color: var(--trade-muted);
+}
+
+.sodl-alchemy-journal p.sodl-trade-hint {
+  display: block;
+  text-align: left;
+}
+
+.sodl-alchemy-journal p,
+.sodl-alchemy-codex-ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin: 6px 0;
+  font-size: 12px;
+}
+
+.sodl-alchemy-journal-item + .sodl-alchemy-journal-item::before,
+.sodl-alchemy-codex-ingredients span + span::before {
+  content: "· ";
+  color: var(--trade-muted);
+}
+
+.sodl-alchemy-codex-entry {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--trade-border);
+}
+
+.sodl-alchemy-codex-entry header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sodl-alchemy-codex-entry header small {
+  color: var(--trade-muted);
+}
+
+.sodl-alchemy-codex-entry p {
+  margin: 4px 0;
+  font-size: 12px;
+}
+
+/* The GM's essence book: each essence becomes a small form while editing. */
+.sodl-alchemy-book-tools {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+.sodl-alchemy-book-tools button {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.sodl-alchemy-codex-entry header .sodl-essence-card-tool.is-edit {
+  margin-left: auto;
+}
+
+.sodl-alchemy-codex {
+  container-type: inline-size;
+}
+
+/* The essence being edited: a card edged with its colour. */
+.sodl-essence-card {
+  --essence: var(--trade-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 6px 0;
+  padding: 8px 10px;
+  border: 1px solid var(--trade-border);
+  border-left: 3px solid var(--essence);
+  border-radius: 6px;
+  background: var(--trade-surface);
+}
+
+.sodl-essence-card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sodl-trade button.sodl-essence-card-icon {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  padding: 1px;
+  border: 1px solid var(--trade-border);
+  border-radius: 4px;
+  background: none;
+}
+
+.sodl-essence-card-icon img {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: contain;
+}
+
+.sodl-trade input.sodl-essence-card-color {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+.sodl-essence-card-color::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.sodl-essence-card-color::-webkit-color-swatch {
+  border: 1px solid var(--trade-border);
+  border-radius: 50%;
+}
+
+.sodl-trade input.sodl-essence-card-name {
+  flex: 2 1 0;
+  min-width: 0;
+  height: 28px;
+  color: var(--essence);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.sodl-trade input.sodl-essence-card-of {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 28px;
+  font-size: 12px;
+}
+
+.sodl-trade button.sodl-essence-card-tool {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--trade-muted);
+  font-size: 12px;
+  line-height: 26px;
+}
+
+.sodl-trade button.sodl-essence-card-tool:hover {
+  color: inherit;
+  box-shadow: none;
+}
+
+.sodl-essence-card-effects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.sodl-essence-card-effects label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sodl-essence-card-effects label > span,
+.sodl-essence-card-label {
+  color: var(--trade-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sodl-trade .sodl-essence-card-effects textarea {
+  min-height: 48px;
+  padding: 4px 6px;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.35;
+  resize: vertical;
+}
+
+.sodl-essence-card-ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.sodl-essence-card-label {
+  width: 100%;
+}
+
+.sodl-essence-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 2px 0 8px;
+  border: 1px solid var(--trade-border);
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.sodl-trade .sodl-essence-pill button {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--trade-muted);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.sodl-trade .sodl-essence-pill button:hover {
+  background: var(--trade-border);
+  color: inherit;
+  box-shadow: none;
+}
+
+.sodl-essence-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.sodl-essence-card-footer > select {
+  flex: 1 1 180px;
+  min-width: 0;
+}
+
+.sodl-essence-card-footer label {
+  display: flex;
+  flex: 1 1 180px;
+  align-items: center;
+  gap: 6px;
+}
+
+.sodl-essence-card-footer label > i {
+  color: var(--trade-muted);
+}
+
+.sodl-essence-card-footer label select {
+  flex: 1;
+  min-width: 0;
+}
+
+@container (max-width: 480px) {
+.sodl-essence-card-effects {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.sodl-alchemy-book-removed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding-top: 8px;
+}
+
+.sodl-alchemy-book-removed .sodl-trade-label {
+  width: 100%;
+  margin: 0;
+}
+
+.sodl-trade .sodl-alchemy-book-removed button.sodl-essence {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  padding: 0 8px;
+  border: 1px dashed var(--essence);
+  border-radius: 10px;
+  background: none;
+  color: var(--essence);
+  font-size: 11px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+@keyframes sodl-alchemy-hover {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Alchemy help: one sentence that sums it up, an example, then the details. */
+.sodl-alchemy-help-lead {
+  margin: 6px 0 4px;
+  font-weight: bold;
+}
+
+.sodl-alchemy-help-example {
+  margin: 0 0 6px;
+  padding: 4px 8px;
+  border-left: 3px solid var(--craft-gold);
+  background: var(--trade-surface);
+  font-style: italic;
+}
+
+/* Essence filter above the shelf: the essences the character has found, as the same coloured chips. */
+.sodl-alchemy-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.sodl-alchemy-filters .sodl-trade-label {
+  width: auto;
+  margin-right: 2px;
+}
+
+.sodl-trade button.sodl-alchemy-filter {
+  height: 24px;
+  padding: 0 10px;
+  border: 1px solid var(--trade-border);
+  border-radius: 12px;
+  background: none;
+  color: var(--trade-muted);
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.sodl-trade button.sodl-alchemy-filter.sodl-essence {
+  border-color: var(--essence);
+  color: var(--essence);
+  opacity: 0.6;
+}
+
+.sodl-trade button.sodl-alchemy-filter.is-active {
+  border-color: var(--craft-gold);
+  background: rgba(201, 147, 46, 0.18);
+  color: inherit;
+  opacity: 1;
+}
+
+.sodl-trade button.sodl-alchemy-filter.sodl-essence.is-active {
+  border-color: var(--essence);
+  background: color-mix(in srgb, var(--essence) 22%, transparent);
+  color: var(--essence);
+}
+
+.sodl-alchemy-ingredient[hidden] {
+  display: none;
+}
+
+/* Successful mixes in the notebook: the ingredients, the essences they gave, and a button to brew it again. */
+.sodl-alchemy-successes {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 6px 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12px;
+}
+
+.sodl-alchemy-successes li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+}
+
+.sodl-alchemy-successes li + li {
+  border-top: 1px solid var(--trade-border);
+}
+
+.sodl-alchemy-success-img {
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  object-fit: contain;
+}
+
+.sodl-alchemy-success-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sodl-alchemy-success-potion {
+  font-size: 13px;
+}
+
+.sodl-alchemy-success-recipe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.sodl-alchemy-success-mix {
+  color: var(--trade-muted);
+}
+
+.sodl-alchemy-successes .fa-arrow-right {
+  color: var(--trade-muted);
+}
+
+.sodl-alchemy-successes button {
+  margin-left: auto;
+}
+
+.sodl-alchemy-success-missing {
+  margin-left: auto;
+  color: var(--trade-muted);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sodl-alchemy-table * {
+    animation: none !important;
+  }
+}

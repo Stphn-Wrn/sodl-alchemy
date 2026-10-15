@@ -1,0 +1,192 @@
+<section class="sodl-trade-panel sodl-alchemy" data-panel="alchemy" {{#unless alchemy.visible}}hidden{{/unless}}>
+  <details class="sodl-trade-help" data-alchemy-help {{#if alchemy.helpOpen}}open{{/if}}>
+    <summary><i class="fas fa-circle-question"></i> {{localize "SODLALCHEMY.Help.Title"}}</summary>
+    <p class="sodl-alchemy-help-lead">{{alchemy.help.lead}}</p>
+    {{#if alchemy.help.example}}<p class="sodl-alchemy-help-example"><i class="fas fa-flask"></i> {{alchemy.help.example}}</p>{{/if}}
+    <ol>
+      {{#each alchemy.help.steps}}<li>{{this}}</li>{{/each}}
+    </ol>
+  </details>
+
+  {{#if isGM}}
+  <div class="sodl-alchemy-codex">
+    <h3 class="sodl-craft-title"><i class="fas fa-book-skull"></i> {{localize "SODLALCHEMY.Codex"}}</h3>
+    <p class="sodl-trade-hint">{{localize "SODLALCHEMY.CodexHint"}}</p>
+    <div class="sodl-alchemy-book-tools">
+      {{#if alchemy.codex.editing}}
+      <button type="button" data-action="essenceAdd"><i class="fas fa-plus"></i> {{localize "SODLALCHEMY.Book.Add"}}</button>
+      <button type="button" data-action="essenceReset"><i class="fas fa-rotate-left"></i> {{localize "SODLALCHEMY.Book.Reset"}}</button>
+      <button type="button" class="sodl-trade-approve" data-action="essenceToggleEdit"><i class="fas fa-check"></i> {{localize "SODLALCHEMY.Book.Done"}}</button>
+      {{else}}
+      <button type="button" data-action="essenceToggleEdit"><i class="fas fa-pen"></i> {{localize "SODLALCHEMY.Book.Edit"}}</button>
+      {{/if}}
+    </div>
+    {{#each alchemy.codex.entries}}
+    {{#if this.open}}
+    <article class="sodl-essence-card" style="--essence: {{this.color}}">
+      <header class="sodl-essence-card-header">
+        <button type="button" class="sodl-essence-card-icon" data-action="essencePickIcon" data-essence-key="{{this.key}}" data-current="{{this.icon}}" title="{{localize 'SODLALCHEMY.Book.Icon'}}"><img src="{{this.icon}}" alt=""></button>
+        <input type="color" class="sodl-essence-card-color" value="{{this.color}}" data-essence-key="{{this.key}}" data-essence-field="color" title="{{localize 'SODLALCHEMY.Book.Color'}}">
+        <input type="text" class="sodl-essence-card-name" value="{{this.name}}" data-essence-key="{{this.key}}" data-essence-field="name" placeholder="{{localize 'SODLALCHEMY.Book.Name'}}" aria-label="{{localize 'SODLALCHEMY.Book.Name'}}">
+        <input type="text" class="sodl-essence-card-of" value="{{this.of}}" data-essence-key="{{this.key}}" data-essence-field="of" placeholder="{{localize 'SODLALCHEMY.Book.OfShort'}}" title="{{localize 'SODLALCHEMY.Book.Of'}}">
+        <button type="button" class="sodl-essence-card-tool" data-action="essenceRemove" data-essence-key="{{this.key}}" data-essence-name="{{this.name}}" title="{{localize 'SODLALCHEMY.Book.Remove'}}"><i class="fas fa-trash"></i></button>
+        <button type="button" class="sodl-essence-card-tool" data-action="essenceOpen" data-essence-key="{{this.key}}" title="{{localize 'SODLALCHEMY.Book.Close'}}"><i class="fas fa-chevron-up"></i></button>
+      </header>
+      <div class="sodl-essence-card-effects">
+        <label><span>{{localize "SODLALCHEMY.Book.Normal"}}</span>
+          <textarea rows="2" data-essence-key="{{this.key}}" data-essence-field="normal">{{this.normal}}</textarea>
+        </label>
+        <label><span>{{localize "SODLALCHEMY.Book.Potent"}}</span>
+          <textarea rows="2" data-essence-key="{{this.key}}" data-essence-field="potent">{{this.potent}}</textarea>
+        </label>
+      </div>
+      <div class="sodl-essence-card-ingredients">
+        <span class="sodl-essence-card-label">{{localize "SODLALCHEMY.Book.Ingredients"}}</span>
+        {{#each this.ingredients}}<span class="sodl-essence-pill">{{this.name}}<button type="button" data-action="essenceRemoveIngredient" data-essence-key="{{../key}}" data-ingredient="{{this.key}}" title="{{localize 'SODLALCHEMY.Book.RemoveIngredient'}}" aria-label="{{localize 'SODLALCHEMY.Book.RemoveIngredient'}}"><i class="fas fa-xmark"></i></button></span>{{else}}<span class="sodl-trade-hint">{{localize "SODLALCHEMY.Book.NoIngredient"}}</span>{{/each}}
+      </div>
+      <footer class="sodl-essence-card-footer">
+        <select data-essence-add-ingredient="{{this.key}}" aria-label="{{localize 'SODLALCHEMY.Book.AddIngredient'}}">
+          <option value="">{{localize "SODLALCHEMY.Book.AddIngredient"}}</option>
+          {{#each this.addable}}
+          <optgroup label="{{this.label}}">
+            {{#each this.ingredients}}<option value="{{this.key}}">{{this.name}}</option>{{/each}}
+          </optgroup>
+          {{/each}}
+        </select>
+        <label title="{{localize 'SODLALCHEMY.Book.OppositeHint'}}"><i class="fas fa-scale-unbalanced"></i>
+          <select data-essence-key="{{this.key}}" data-essence-field="opposite" aria-label="{{localize 'SODLALCHEMY.Book.Opposite'}}">
+            <option value="">{{localize "SODLALCHEMY.Book.NoOpposite"}}</option>
+            {{#each this.oppositeChoices}}<option value="{{this.key}}" {{#if this.selected}}selected{{/if}}>{{localize "SODLALCHEMY.Opposes" essence=this.name}}</option>{{/each}}
+          </select>
+        </label>
+      </footer>
+    </article>
+    {{else}}
+    <article class="sodl-alchemy-codex-entry">
+      <header>
+        <span class="sodl-essence" style="--essence: {{this.color}}">{{this.name}}</span>
+        {{#if this.opposes}}<small>{{this.opposes}}</small>{{/if}}
+        {{#if @root.alchemy.codex.editing}}<button type="button" class="sodl-essence-card-tool is-edit" data-action="essenceOpen" data-essence-key="{{this.key}}" title="{{localize 'SODLALCHEMY.Book.EditOne'}}"><i class="fas fa-pen"></i></button>{{/if}}
+      </header>
+      <p>{{this.normal}}</p>
+      <p class="sodl-alchemy-codex-ingredients">{{#each this.ingredients}}<span>{{this.name}}</span>{{/each}}</p>
+    </article>
+    {{/if}}
+    {{/each}}
+    {{#if alchemy.codex.removed.length}}
+    <div class="sodl-alchemy-book-removed">
+      <p class="sodl-trade-label">{{localize "SODLALCHEMY.Book.Removed"}}</p>
+      {{#each alchemy.codex.removed}}
+      <button type="button" class="sodl-essence" style="--essence: {{this.color}}" data-action="essenceRestore" data-essence-key="{{this.key}}" title="{{localize 'SODLALCHEMY.Book.Restore'}}"><i class="fas fa-rotate-left"></i> {{this.name}}</button>
+      {{/each}}
+    </div>
+    {{/if}}
+  </div>
+  {{else}}
+  {{#if acting}}
+
+  <div class="sodl-alchemy-table is-lit" data-craft-bench data-alchemy-table data-vials="{{alchemy.vials}}" data-unbound="{{alchemy.unbound}}">
+    <div class="sodl-alchemy-cauldron">{{{alchemy.cauldron}}}</div>
+    <div class="sodl-alchemy-side">
+      <span class="sodl-trade-label">{{localize "SODLTRADE.Crafting.Ingredients"}}</span>
+      <div class="sodl-alchemy-slots">
+        {{#each alchemy.slots}}
+        <button type="button" class="sodl-alchemy-slot" data-alchemy-slot disabled></button>
+        {{/each}}
+      </div>
+      <p class="sodl-alchemy-foreseen is-hint" data-alchemy-hint>{{localize "SODLALCHEMY.SlotHint"}}</p>
+      <span class="sodl-alchemy-vials {{#unless alchemy.vials}}is-missing{{/unless}}" title="{{localize 'SODLALCHEMY.NoVial'}}">
+        <img src="icons/consumables/potions/bottle-round-empty-glass.webp" alt=""> {{localize "SODLALCHEMY.Vials" count=alchemy.vials}}
+      </span>
+      <button type="button" class="sodl-craft-brew" data-action="alchemyBrew" disabled>
+        <i class="fas fa-fire-flame-curved"></i> {{localize "SODLALCHEMY.Brew"}}
+      </button>
+    </div>
+  </div>
+
+  {{#with alchemy.report}}
+  <div class="sodl-alchemy-report">
+    <header>
+      <span><i class="fas fa-scroll"></i> {{this.title}}</span>
+      <button type="button" class="sodl-trade-icon" data-action="alchemyDismiss" data-report-id="{{this.id}}" title="{{localize 'SODLTRADE.Window.Remove'}}"><i class="fas fa-xmark"></i></button>
+    </header>
+    {{#if this.outcome}}
+    <p class="sodl-alchemy-outcome">{{#if this.img}}<img src="{{this.img}}" alt="">{{/if}} {{this.outcome}}</p>
+    {{/if}}
+    {{#each this.sideEffects}}<p class="sodl-alchemy-side-effect"><i class="fas fa-skull"></i> {{this}}</p>{{/each}}
+    {{#each this.learned}}<p class="sodl-alchemy-learned"><i class="fas fa-feather-pointed"></i> {{this}}</p>{{/each}}
+    {{#each this.unbound}}<p class="sodl-alchemy-learned"><i class="fas fa-link-slash"></i> {{this}}</p>{{/each}}
+    {{#each this.recipes}}<p class="sodl-alchemy-learned"><i class="fas fa-book"></i> {{this}}</p>{{/each}}
+  </div>
+  {{/with}}
+
+  <h3 class="sodl-alchemy-heading">{{localize "SODLALCHEMY.Shelf"}}</h3>
+  {{#if alchemy.shelf.length}}
+  <div class="sodl-alchemy-filters" role="group" aria-label="{{localize 'SODLALCHEMY.Filter.Label'}}">
+    <span class="sodl-trade-label">{{localize "SODLALCHEMY.Filter.Label"}}</span>
+    {{#each alchemy.filters}}
+    <button type="button" class="sodl-alchemy-filter {{#if this.essence}}sodl-essence is-{{this.key}}{{/if}} {{#if this.active}}is-active{{/if}}" {{#if this.color}}style="--essence: {{this.color}}"{{/if}} data-alchemy-filter="{{this.key}}">{{this.label}}</button>
+    {{/each}}
+  </div>
+  <ul class="sodl-alchemy-shelf">
+    {{#each alchemy.shelf}}
+    <li class="sodl-alchemy-ingredient" data-alchemy-ingredient data-known-essences="{{this.known}}" data-unexplored="{{#if this.canStudy}}1{{/if}}">
+      <button type="button" class="sodl-alchemy-pick" data-alchemy-add="{{this.id}}" data-ingredient-key="{{this.ingredientKey}}" data-known="{{this.known}}" data-img="{{this.img}}" data-name="{{this.name}}" title="{{this.name}}">
+        <img src="{{this.img}}" alt="">
+        <span class="sodl-alchemy-name">{{this.name}}</span>
+        <span class="sodl-alchemy-quantity">×{{this.quantity}}</span>
+      </button>
+      <div class="sodl-alchemy-essences">
+        {{#each this.essences}}
+        {{#if this.known}}<span class="sodl-essence is-{{this.key}}" {{#if this.color}}style="--essence: {{this.color}}"{{/if}}>{{this.name}}</span>{{else}}<span class="sodl-essence is-unknown" title="{{localize 'SODLALCHEMY.Unknown'}}">?</span>{{/if}}
+        {{/each}}
+        {{#if this.canStudy}}
+        <button type="button" class="sodl-trade-icon sodl-alchemy-study" data-action="alchemyStudy" data-item-id="{{this.id}}" title="{{localize 'SODLALCHEMY.Study'}}"><i class="fas fa-magnifying-glass"></i></button>
+        {{/if}}
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+  <p class="sodl-trade-empty" data-alchemy-no-match hidden>{{localize "SODLALCHEMY.Filter.NoMatch"}}</p>
+  {{else}}
+  <p class="sodl-trade-empty">{{localize "SODLALCHEMY.ShelfEmpty"}}</p>
+  {{/if}}
+
+  {{#if alchemy.successes.length}}
+  <details class="sodl-alchemy-journal" open>
+    <summary><i class="fas fa-check"></i> {{localize "SODLALCHEMY.SuccessTitle"}} <small>{{alchemy.successes.length}}</small></summary>
+    <p class="sodl-trade-hint">{{localize "SODLALCHEMY.SuccessHint"}}</p>
+    <ul class="sodl-alchemy-successes">
+      {{#each alchemy.successes}}
+      <li title="{{this.potion.effects}}">
+        <img class="sodl-alchemy-success-img" src="{{this.potion.img}}" alt="">
+        <div class="sodl-alchemy-success-body">
+          <strong class="sodl-alchemy-success-potion">{{this.potion.name}}</strong>
+          <div class="sodl-alchemy-success-recipe">
+            <span class="sodl-alchemy-success-mix">{{this.ingredients}}</span>
+            <i class="fas fa-arrow-right"></i>
+            {{#each this.essences}}<span class="sodl-essence is-{{this.key}}" {{#if this.color}}style="--essence: {{this.color}}"{{/if}}>{{this.name}}</span>{{/each}}
+          </div>
+        </div>
+        {{#if this.ready}}
+        <button type="button" class="sodl-trade-icon" data-alchemy-repeat="{{this.ready}}" title="{{localize 'SODLALCHEMY.Repeat'}}"><i class="fas fa-rotate-right"></i></button>
+        {{else}}
+        <small class="sodl-alchemy-success-missing">{{localize "SODLALCHEMY.RepeatMissing"}}</small>
+        {{/if}}
+      </li>
+      {{/each}}
+    </ul>
+  </details>
+  {{/if}}
+
+  {{#if alchemy.unboundPairs.length}}
+  <details class="sodl-alchemy-journal">
+    <summary><i class="fas fa-link-slash"></i> {{localize "SODLALCHEMY.UnboundTitle"}} <small>{{alchemy.unboundPairs.length}}</small></summary>
+    <p class="sodl-trade-hint">{{localize "SODLALCHEMY.UnboundHint"}}</p>
+    <p>{{#each alchemy.unboundPairs}}<span class="sodl-alchemy-journal-item">{{this.first}} + {{this.second}}</span>{{/each}}</p>
+  </details>
+  {{/if}}
+
+  {{/if}}
+  {{/if}}
+</section>

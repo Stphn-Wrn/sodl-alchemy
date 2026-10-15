@@ -1,0 +1,347 @@
+{
+  "essences": {
+    "healing-herbs": [
+      "vitality",
+      "purge",
+      "ward"
+    ],
+    "bitter-root": [
+      "purge",
+      "vigil",
+      "fury"
+    ],
+    "cave-mushroom": [
+      "vigil",
+      "dream",
+      "shadow"
+    ],
+    "nightshade": [
+      "venom",
+      "dream",
+      "decay"
+    ],
+    "grave-moss": [
+      "decay",
+      "shadow",
+      "ward"
+    ],
+    "moonpetal": [
+      "clarity",
+      "dream",
+      "vitality"
+    ],
+    "wolfsbane": [
+      "venom",
+      "ward",
+      "fury"
+    ],
+    "bloodthorn": [
+      "vitality",
+      "fury",
+      "decay"
+    ],
+    "mandrake-root": [
+      "dream",
+      "abyss",
+      "vitality"
+    ],
+    "hemlock": [
+      "venom",
+      "decay",
+      "stone"
+    ],
+    "ghost-lichen": [
+      "shadow",
+      "ward",
+      "clarity"
+    ],
+    "corpse-lily": [
+      "decay",
+      "abyss",
+      "vigil"
+    ],
+    "stonewort": [
+      "stone",
+      "vitality",
+      "ward"
+    ],
+    "bog-reed": [
+      "purge",
+      "haste",
+      "dream"
+    ],
+    "ember-thistle": [
+      "cinder",
+      "haste",
+      "fury"
+    ],
+    "witchcap": [
+      "dream",
+      "clarity",
+      "abyss"
+    ],
+    "bleeding-tooth": [
+      "vitality",
+      "venom",
+      "vigil"
+    ],
+    "glowcap": [
+      "clarity",
+      "vigil",
+      "shadow"
+    ],
+    "dead-mans-fingers": [
+      "decay",
+      "ward",
+      "stone"
+    ],
+    "willow-bark": [
+      "vitality",
+      "clarity",
+      "stone"
+    ],
+    "black-kelp": [
+      "purge",
+      "ward",
+      "haste"
+    ],
+    "sulfur": [
+      "cinder",
+      "purge",
+      "fury"
+    ],
+    "saltpeter": [
+      "haste",
+      "cinder",
+      "stone"
+    ],
+    "quicksilver": [
+      "haste",
+      "clarity",
+      "venom"
+    ],
+    "bloodstone": [
+      "vitality",
+      "ward",
+      "fury"
+    ],
+    "volcanic-ash": [
+      "cinder",
+      "stone",
+      "shadow"
+    ],
+    "rock-salt": [
+      "purge",
+      "ward",
+      "stone"
+    ],
+    "amber": [
+      "clarity",
+      "stone",
+      "vitality"
+    ],
+    "lodestone": [
+      "haste",
+      "stone",
+      "vigil"
+    ],
+    "creature-bones": [
+      "stone",
+      "ward",
+      "decay"
+    ],
+    "monster-blood": [
+      "vitality",
+      "fury",
+      "abyss"
+    ],
+    "venom-gland": [
+      "venom",
+      "purge",
+      "haste"
+    ],
+    "giant-scales": [
+      "stone",
+      "cinder",
+      "ward"
+    ],
+    "undead-dust": [
+      "decay",
+      "dream",
+      "abyss"
+    ],
+    "demon-ichor": [
+      "abyss",
+      "fury",
+      "cinder",
+      "vitality"
+    ],
+    "bat-wing": [
+      "shadow",
+      "haste",
+      "vigil"
+    ],
+    "toad-skin": [
+      "venom",
+      "dream",
+      "purge"
+    ],
+    "troll-heart": [
+      "vitality",
+      "stone",
+      "fury",
+      "decay"
+    ],
+    "spider-silk": [
+      "stone",
+      "shadow",
+      "dream"
+    ],
+    "ghoul-tongue": [
+      "decay",
+      "fury",
+      "abyss"
+    ],
+    "owl-eye": [
+      "vigil",
+      "clarity",
+      "shadow"
+    ],
+    "serpent-fang": [
+      "venom",
+      "haste",
+      "stone"
+    ],
+    "bloated-leech": [
+      "vitality",
+      "purge",
+      "decay"
+    ],
+    "wyrm-bile": [
+      "cinder",
+      "venom",
+      "fury"
+    ],
+    "crow-feather": [
+      "shadow",
+      "haste",
+      "ward"
+    ],
+    "beetle-shell": [
+      "stone",
+      "ward",
+      "cinder"
+    ],
+    "eel-oil": [
+      "haste",
+      "purge",
+      "shadow"
+    ],
+    "hanged-hair": [
+      "dream",
+      "abyss",
+      "ward"
+    ],
+    "grave-soil": [
+      "decay",
+      "dream",
+      "stone"
+    ],
+    "distilled-spirit": [
+      "vigil",
+      "cinder",
+      "purge"
+    ],
+    "bone-powder": [
+      "stone",
+      "decay",
+      "clarity"
+    ],
+    "lamp-black": [
+      "shadow",
+      "cinder"
+    ],
+    "arcane-salts": [
+      "clarity",
+      "ward",
+      "haste"
+    ],
+    "faerie-dew": [
+      "vitality",
+      "dream",
+      "clarity"
+    ],
+    "faerie-pollen": [
+      "dream",
+      "haste",
+      "shadow"
+    ],
+    "deathmoth-eggs": [
+      "dream",
+      "decay",
+      "shadow"
+    ],
+    "asphodel": [
+      "ward",
+      "decay",
+      "vigil"
+    ],
+    "shade-essence": [
+      "shadow",
+      "abyss",
+      "haste"
+    ],
+    "hell-brimstone": [
+      "cinder",
+      "abyss",
+      "fury"
+    ],
+    "damned-ember": [
+      "cinder",
+      "fury",
+      "abyss",
+      "vitality"
+    ],
+    "dead-reality-shard": [
+      "abyss",
+      "clarity",
+      "stone"
+    ],
+    "titan-bone": [
+      "stone",
+      "vitality",
+      "fury"
+    ],
+    "wraith-tear": [
+      "dream",
+      "shadow",
+      "ward"
+    ],
+    "faerie-wing": [
+      "haste",
+      "clarity",
+      "dream"
+    ],
+    "imp-horn": [
+      "cinder",
+      "abyss",
+      "haste"
+    ],
+    "void-pearl": [
+      "abyss",
+      "shadow",
+      "clarity",
+      "vigil"
+    ],
+    "hag-eye": [
+      "vigil",
+      "abyss",
+      "venom"
+    ],
+    "dryad-sap": [
+      "vitality",
+      "ward",
+      "haste"
+    ]
+  }
+}

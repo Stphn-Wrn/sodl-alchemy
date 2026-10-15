@@ -1,0 +1,211 @@
+{
+  "SODLALCHEMY": {
+    "Tab": "Alchimie",
+    "Settings": {
+      "Enabled": {
+        "Name": "Activer l'alchimie expérimentale (règle maison)",
+        "Hint": "Règle maison, absente des livres : les ingrédients cachent des essences que les personnages découvrent en les mélangeant au chaudron. Les livres passent par l'artisanat (Demon Lord's Companion) et les sorts Identify Substance et Brew Potion de l'onglet Laboratoire."
+      }
+    },
+    "Title": "Alchimie",
+    "Shelf": "Vos ingrédients",
+    "ShelfEmpty": "Aucun ingrédient alchimique dans l'inventaire. Récoltez-en ou achetez-en.",
+    "SlotHint": "Cliquez sur vos ingrédients pour les jeter dans le chaudron.",
+    "Remove": "Retirer du chaudron",
+    "Brew": "Brasser",
+    "Study": "Étudier : consomme un exemplaire et révèle une essence",
+    "Vials": "Fioles vides : {count}",
+    "NoVial": "Il faut une fiole vide pour mettre la potion en bouteille.",
+    "Foreseen": "Vous pressentez : {essences}",
+    "ForeseenNone": "Aucune essence connue en commun… à vos risques.",
+    "Unknown": "Essence inconnue",
+    "Codex": "Codex des essences",
+    "CodexHint": "Réservé au MJ : les essences cachées de chaque ingrédient du catalogue.",
+    "Opposes": "s'oppose à {essence}",
+    "LastBrew": "Dernière préparation",
+    "Made": "Vous obtenez : {name}",
+    "Inert": "Mixture inerte : rien ne s'est lié, les ingrédients sont perdus.",
+    "Studied": "Étude de {name}",
+    "Learned": "Découvert : {ingredient} contient {essence}",
+    "RecipesFound": "Recette apprise, à retrouver dans l'onglet Artisanat : {names}",
+    "SideEffectsTitle": "Effets secondaires",
+    "PotionUse": "Boire la potion demande une action. Ses effets nuisibles frappent celui qui la boit ; versée dans une boisson ou enduite sur une arme, elle touche la victime.",
+    "Potion": {
+      "potent": "Élixir puissant {effects}",
+      "normal": "Élixir {effects}",
+      "flawed": "Élixir trouble {effects}"
+    },
+    "Quality": {
+      "potent": "Préparation puissante.",
+      "normal": "Préparation ordinaire.",
+      "flawed": "Préparation trouble : quelque chose a mal tourné."
+    },
+    "Help": {
+      "Title": "Comment ça marche ?",
+      "Player": {
+        "Lead": "Chaque ingrédient cache des effets secrets : les essences. Mélangez deux ingrédients qui ont une essence en commun, et vous obtenez une potion de cette essence.",
+        "Example": "Exemple : l'ingrédient A cache Purge et Vigilance, l'ingrédient B cache Ombre et Vigilance. Ensemble, ils partagent Vigilance : vous obtenez une potion de vigilance.",
+        "Step1": "Cliquez sur 2 à 4 ingrédients, puis sur « Brasser ». Il faut une fiole vide.",
+        "Step2": "Les essences en commun passent dans la potion. Sans rien en commun, rien ne se lie : les ingrédients sont perdus, la fiole est gardée.",
+        "Step3": "Chaque essence découverte remplace un « ? » sur l'ingrédient et reste dans votre carnet. La loupe révèle une essence de plus, en sacrifiant un exemplaire.",
+        "Step4": "Un jet d'Intellect donne la qualité : 20 et plus, puissante ; 10 et plus, normale ; en dessous, ratée, avec un effet secondaire.",
+        "Step5": "Gare aux contraires dans la même potion : Vitalité et Putréfaction, Purge et Venin, Clarté et Songe, Garde et Abîme, Célérité et Pierre. Ils ajoutent un effet secondaire."
+      },
+      "Gm": {
+        "Lead": "Les joueurs découvrent les essences cachées des ingrédients en les mélangeant ; vous, vous les voyez toutes dans le codex ci-dessous.",
+        "Step1": "Les ingrédients sont les ressources du module : « Créer les ressources » dans l'onglet Artisanat, puis donnez-les en récolte, en boutique ou en récompense.",
+        "Step2": "Une potion réussie arrive dans l'inventaire avec ses effets écrits ; vous les arbitrez quand elle est bue.",
+        "Step3": "Bonus : un joueur qui met au chaudron exactement les ingrédients d'une recette d'artisanat, sans rien de plus, l'apprend (la fiole seule ne suffit pas)."
+      }
+    },
+    "Book": {
+      "Edit": "Modifier les essences",
+      "Done": "Terminé",
+      "Add": "Nouvelle essence",
+      "NewName": "Nouvelle essence",
+      "Reset": "Tout remettre comme au départ",
+      "ConfirmReset": "Remettre les essences et les ingrédients comme le module les livre ? Les essences créées seront supprimées. Les potions déjà brassées ne changent pas.",
+      "Remove": "Retirer l'essence",
+      "ConfirmRemove": "Retirer l'essence « {name} » ? Elle disparaît des ingrédients et des prochains brassages. Une essence d'origine peut être remise ensuite ; une essence créée est supprimée.",
+      "Removed": "Essences retirées (cliquer pour remettre)",
+      "Restore": "Remettre cette essence",
+      "Icon": "Icône des potions de cette essence",
+      "Color": "Couleur",
+      "Name": "Nom",
+      "Of": "Dans le nom d'une potion (ex. « de givre »)",
+      "Normal": "Effet normal",
+      "Potent": "Effet puissant",
+      "Opposite": "Essence contraire",
+      "NoOpposite": "Sans contraire",
+      "AddIngredient": "Ajouter un ingrédient…",
+      "RemoveIngredient": "Retirer cet ingrédient",
+      "OfShort": "de …",
+      "Close": "Replier",
+      "EditOne": "Modifier cette essence",
+      "Ingredients": "Ingrédients",
+      "NoIngredient": "Aucun ingrédient ne porte cette essence.",
+      "OppositeHint": "Un brassage qui contient deux essences contraires est instable."
+    },
+    "Essences": {
+      "vitality": {
+        "Name": "Vitalité",
+        "Of": "de vitalité",
+        "Normal": "Le buveur récupère autant de Santé que son taux de guérison.",
+        "Potent": "Le buveur récupère deux fois son taux de guérison en Santé."
+      },
+      "purge": {
+        "Name": "Purge",
+        "Of": "de purge",
+        "Normal": "Met fin à l'état empoisonné et aux effets d'un poison.",
+        "Potent": "Met fin à l'état empoisonné, aux poisons et aux maladies, puis donne 1 faveur aux défis pour résister au poison pendant 1 heure."
+      },
+      "venom": {
+        "Name": "Venin",
+        "Of": "de venin",
+        "Normal": "Celui qui la boit, ou que blesse une arme enduite, fait un défi de Force : en cas d'échec, il subit 1d6 dégâts et est empoisonné pendant 1 minute.",
+        "Potent": "Celui qui la boit, ou que blesse une arme enduite, fait un défi de Force avec 1 pénalité : en cas d'échec, il subit 2d6 dégâts et est empoisonné pendant 1 heure."
+      },
+      "vigil": {
+        "Name": "Vigilance",
+        "Of": "de vigilance",
+        "Normal": "1 faveur aux jets de Perception pendant 1 heure ; le buveur ne peut pas être surpris.",
+        "Potent": "Pendant 8 heures, 1 faveur aux jets de Perception, le buveur ne peut pas être surpris et n'a pas besoin de dormir."
+      },
+      "cinder": {
+        "Name": "Cendre",
+        "Of": "de cendre",
+        "Normal": "Le buveur subit moitié moins de dégâts du feu pendant 1 heure.",
+        "Potent": "Le buveur est immunisé contre les dégâts du feu pendant 1 heure."
+      },
+      "shadow": {
+        "Name": "Ombre",
+        "Of": "d'ombre",
+        "Normal": "1 faveur aux jets pour se cacher ou se déplacer sans bruit pendant 1 heure.",
+        "Potent": "Pendant 1 heure, le buveur voit dans le noir et a 2 faveurs aux jets pour se cacher ou se déplacer sans bruit."
+      },
+      "stone": {
+        "Name": "Pierre",
+        "Of": "de pierre",
+        "Normal": "+2 à la Défense pendant 1 minute, mais −2 à la Vitesse.",
+        "Potent": "+4 à la Défense pendant 1 minute, mais −2 à la Vitesse."
+      },
+      "fury": {
+        "Name": "Fureur",
+        "Of": "de fureur",
+        "Normal": "Pendant 1 minute, 1 faveur aux jets d'attaque de Force et 1 pénalité aux jets d'Intellect.",
+        "Potent": "Pendant 1 minute, 2 faveurs aux jets d'attaque de Force, +1d6 dégâts, et 1 pénalité aux jets d'Intellect et de Volonté."
+      },
+      "clarity": {
+        "Name": "Clarté",
+        "Of": "de clarté",
+        "Normal": "1 faveur aux jets d'Intellect pendant 1 heure.",
+        "Potent": "Pendant 1 heure, 1 faveur aux jets d'Intellect et de Volonté ; met fin aux états effrayé et hébété."
+      },
+      "haste": {
+        "Name": "Célérité",
+        "Of": "de célérité",
+        "Normal": "+4 à la Vitesse pendant 1 minute.",
+        "Potent": "+8 à la Vitesse pendant 1 minute ; le buveur ignore les terrains difficiles."
+      },
+      "decay": {
+        "Name": "Putréfaction",
+        "Of": "de putréfaction",
+        "Normal": "Celui qui la boit, ou que blesse une arme enduite, subit 1d6 dégâts : sa chair noircit.",
+        "Potent": "Celui qui la boit, ou que blesse une arme enduite, subit 2d6 dégâts et a 1 pénalité aux jets de Force pendant 1 heure."
+      },
+      "dream": {
+        "Name": "Songe",
+        "Of": "de songe",
+        "Normal": "Celui qui la boit fait un défi de Volonté : en cas d'échec, il s'endort pendant 1 minute (un coup le réveille).",
+        "Potent": "Celui qui la boit fait un défi de Volonté avec 1 pénalité : en cas d'échec, il s'endort pendant 1 heure."
+      },
+      "abyss": {
+        "Name": "Abîme",
+        "Of": "d'abîme",
+        "Normal": "1 faveur à tous les jets pendant 1 minute. Le buveur gagne 1 Corruption.",
+        "Potent": "2 faveurs à tous les jets pendant 1 minute. Le buveur gagne 1 Corruption."
+      },
+      "ward": {
+        "Name": "Garde",
+        "Of": "de garde",
+        "Normal": "Le buveur ne peut pas être effrayé pendant 1 heure.",
+        "Potent": "Pendant 1 heure, le buveur ne peut pas être effrayé et a 1 faveur aux défis pour résister à la magie."
+      }
+    },
+    "SideEffects": {
+      "corruption": "Souillure : le buveur gagne 1 Corruption.",
+      "madness": "Murmures : le buveur gagne 1 Folie.",
+      "nausea": "Nausée : le buveur est empoisonné pendant 1 minute.",
+      "eruption": "Éruption : la mixture a craché au visage de l'alchimiste, qui a subi 1d6 dégâts.",
+      "visions": "Visions : le buveur a 1 pénalité aux jets de Perception pendant 1 heure.",
+      "stigma": "Stigmate : le buveur garde une marque étrange (yeux, peau ou voix) pendant 1d6 jours."
+    },
+    "KnownInert": "Déjà noté dans le carnet : ces ingrédients n'ont rien en commun, rien ne se liera.",
+    "UnboundNoted": "Noté dans le carnet : {first} et {second} n'ont rien en commun.",
+    "UnboundTitle": "Mélanges sans affinité",
+    "Filter": {
+      "Label": "Filtrer :",
+      "All": "Tout",
+      "Unexplored": "Encore des « ? »",
+      "NoMatch": "Aucun ingrédient ne correspond à ce filtre."
+    },
+    "UnboundHint": "Ces paires d'ingrédients n'ont aucune essence en commun : les brasser ensemble ne donne rien. Le chaudron vous prévient si vous les remettez ensemble.",
+    "SuccessTitle": "Mélanges réussis",
+    "SuccessHint": "Les mélanges qui ont donné une potion : la potion obtenue, ses ingrédients et ses essences. Survolez une ligne pour lire ses effets ; cliquez sur la flèche pour remettre les mêmes ingrédients dans le chaudron.",
+    "Repeat": "Remettre ce mélange dans le chaudron",
+    "RepeatMissing": "ingrédient manquant",
+    "Chat": {
+      "brewed": "{name} brasse {item}.",
+      "brewInert": "{name} brasse une mixture inerte."
+    },
+    "Errors": {
+      "BrewCount": "Il faut entre {min} et {max} ingrédients différents.",
+      "BrewDuplicate": "Chaque ingrédient ne peut être jeté qu'une fois.",
+      "NoVial": "Il faut une fiole vide.",
+      "NotAnIngredient": "Cet objet n'est pas un ingrédient alchimique.",
+      "NothingToLearn": "Vous savez déjà tout de {name}.",
+      "InvalidEssence": "Essence invalide : un nom est obligatoire, et une essence ne peut pas s'opposer à elle-même.",
+      "NoTradeModule": "L'alchimie à essences a besoin du module « L'Ombre du Seigneur Démon - Échanges et artisanat », activé dans ce monde."
+    }
+  }
+}
